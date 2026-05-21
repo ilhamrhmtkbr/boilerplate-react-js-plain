@@ -168,6 +168,10 @@ const router = createBrowserRouter([
 
   // ── Catch-all ────────────────────────────────────────────────────────
   { path: '*', element: <Navigate to="/" replace /> },
-])
+],
+  {
+    basename: import.meta.env.BASE_URL,
+  }
+)
 
 export default router

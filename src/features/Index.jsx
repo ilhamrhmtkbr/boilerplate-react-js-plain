@@ -36,15 +36,21 @@ import Tooltip from "../components/common/Tooltip.jsx";
 export default function Index() {
     // ======== Setup Component ========
     const rawCodes = import.meta.glob('../components/**/*.jsx', {
-        as: 'raw',
-        eager: true
+    query: '?raw',
+    import: 'default',
+    eager: true,
     })
 
     const codeMap = {}
 
     for (const path in rawCodes) {
-        const name = path.split('/').pop().replace('.jsx', '').toLowerCase()
-        codeMap[name] = rawCodes[path]
+    const name = path
+        .split('/')
+        .pop()
+        .replace('.jsx', '')
+        .toLowerCase()
+
+    codeMap[name] = rawCodes[path]
     }
     // ======== Setup Component ========
 
